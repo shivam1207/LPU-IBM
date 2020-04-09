@@ -1,5 +1,5 @@
-package com.example.demo;
 
+package com.example.demo;
 
 import java.util.List;
 import java.util.Scanner;
@@ -12,8 +12,7 @@ import com.example.demo.service.ToDoServiceImpl;
  * Hello world!
  *
  */
-public class App 
-{
+public class App {
 	private ToDoService service;
 	private static Scanner scanner = new Scanner(System.in);
 
@@ -54,5 +53,4 @@ public class App
 		} while (choice != 0);
 
 	}
-
 }
