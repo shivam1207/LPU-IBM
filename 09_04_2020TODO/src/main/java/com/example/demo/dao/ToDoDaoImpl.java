@@ -13,7 +13,7 @@ public class ToDoDaoImpl implements ToDoDao {
 	}
 
 	public void createTask(ToDo todo) {
-		task.craeteToDo(todo);
+		task.createToDo(todo);
 
 		
 	}

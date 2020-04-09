@@ -13,7 +13,7 @@ public class Task {
 		todos=new ArrayList<ToDo>();
 	}
 
-	public void craeteToDo(ToDo todo) {
+	public void createToDo(ToDo todo) {
 		todos.add(todo);
 		System.out.println("todo added successfully.!");
 	}
