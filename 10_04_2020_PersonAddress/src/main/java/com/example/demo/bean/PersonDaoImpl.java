@@ -1,18 +1,16 @@
 package com.example.demo.bean;
 
+import org.springframework.context.support.ClassPathXmlApplicationContext;
+
 public class PersonDaoImpl implements PersonDao{
 
-	
-	public String getPersonInfo(Person person) {
+	@Override
+	public Person getPersonInfo() {
 		// TODO Auto-generated method stub
 		
-		return "Name:" + person.getName() + "\n" + "Age:" + person.getAge() + "\n"
-        + "Height: " + person.getHeight() + "\n" + "Is Programmer?: "
-        + person.isIsprogrammer() + "\n" + "Address: "
-        + person.getAddress().getStreetNumber() + " "
-        + person.getAddress().getStreetName() + " "
-        + person.getAddress().getCity() + " "
-        + person.getAddress().getCountry();
+		ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext("applicationContext.xml");
+		Person P = context.getBean("person",Person.class);
+		return P;
 	}
 	
 
