@@ -64,12 +64,7 @@ public class App
 				{
 					System.out.println(image);
 				}
-				break;
-			case 3:
-				System.out.print("Enter image id: ");
-				String imageId1 = scanner.next();
-	
-				
+				break;	
 			case 0:
 				System.out.println("bye.!!!!!");
 				System.exit(0);
