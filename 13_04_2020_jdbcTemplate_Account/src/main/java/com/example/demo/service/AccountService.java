@@ -9,4 +9,5 @@ public interface AccountService {
 	public Account updateAccount(Account account);
 	public Account deleteAccount(Account account);
 	public List<Account> getAllAccountDetails();
+	public Account findByAccountNumber(String accountNumber);
 }
