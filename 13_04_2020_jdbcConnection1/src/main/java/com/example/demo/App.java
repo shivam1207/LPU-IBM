@@ -28,7 +28,6 @@ public class App
     	System.out.println(todo);
     	List<ToDo> todo1 =toDoService.getAllToDo();
     	
-    	
 		
     }
 }
