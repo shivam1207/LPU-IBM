@@ -37,7 +37,7 @@ public class App
 		 * account.setInitialBalance(600000);
 		 * 
 		 * //account=service.createAccount(account);
-		 * account=service.updateAccount(account);
+		 * 
 		 * //account=service.deleteAccount(account);
 		 */			
 		//System.out.println(account);
@@ -49,8 +49,11 @@ public class App
 		 * 
 		 * }
 		 */
-		account=service.findByAccountNumber("761c7f3d");
-		System.out.println(account);
+		//account=service.findByAccountNumber("761c7f3d");
+		//service.deleteAccount("761c7f3d");
+		//System.out.println(account);
+		service.updateAccount("761c16ggdhh", "CURRENT",100000);
+		
 		
 		
     	

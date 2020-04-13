@@ -18,16 +18,11 @@ public class AccountServiceImpl implements AccountService{
 		return accountDao.createAccount(account);
 	}
 
-	public Account updateAccount(Account account) {
-		// TODO Auto-generated method stub
-		return accountDao.updateAccount(account);
 	
-	}
-
 	@Override
-	public Account deleteAccount(Account account) {
+	public void deleteAccount(String accountNumber) {
 		// TODO Auto-generated method stub
-		return accountDao.deleteAccount(account);
+		accountDao.deleteAccount(accountNumber);
 	}
 
 	@Override
@@ -42,4 +37,13 @@ public class AccountServiceImpl implements AccountService{
 		return accountDao.findByAccountNumber(accountNumber);
 	}
 
+
+	@Override
+	public void updateAccount(String accountNumber, String accountType, int initialBalance) {
+		// TODO Auto-generated method stub
+		accountDao.updateAccount(accountNumber, accountType, initialBalance);
+		
+	}
+
+	
 }

@@ -31,17 +31,17 @@ public class AccountDaoImpl implements AccountDao{
 		return account;
 	}
 	@Override
-	public Account updateAccount(Account account) {
+	public void updateAccount(String accountNumber,String accountType, int initialBalance) {
 		// TODO Auto-generated method stub
-		String query = "update account set accountType='"+account.getAccountType()+"', balance="+account.getInitialBalance()+" where accountNumber='"+account.getAccountNumber()+"'";
+		String query = "update account set accountType='"+accountType+"', balance="+initialBalance+" where accountNumber='"+accountNumber+"'";
 		jdbcTemplate.update(query);
-		return account;
+		System.out.println("account updated successfully with id: "+accountNumber);
 		}
 	@Override
-	public Account deleteAccount(Account account) {
-		String query = "delete from account where accountNumber='"+account.getAccountNumber()+"'";
-		jdbcTemplate.update(query);
-		return account;
+	public void deleteAccount(String accountNumber) {
+		String str="delete from account where accountNumber='"+accountNumber+"'";
+		 jdbcTemplate.update(str);
+		 System.out.println("account deleted successfully with id: "+accountNumber);
 	}
 	@Override
 	public List<Account> getAllAccountDetails() {
