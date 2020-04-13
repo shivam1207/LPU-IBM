@@ -1,12 +1,15 @@
 package com.example.demo.dao;
 
+import java.util.List;
 import java.util.logging.Logger;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
 
 import com.example.demo.bean.Account;
+import com.example.demo.bean.AccountRowMapper;
 
 @Repository("accountDao")
 public class AccountDaoImpl implements AccountDao{
@@ -39,6 +42,12 @@ public class AccountDaoImpl implements AccountDao{
 		String query = "delete from account where accountNumber='"+account.getAccountNumber()+"'";
 		jdbcTemplate.update(query);
 		return account;
+	}
+	@Override
+	public List<Account> getAllAccountDetails() {
+		List<Account> accounts=jdbcTemplate.query("select * from account",new AccountRowMapper());
+				//List<Account> accounts=jdbcTemplate.query("select * from account", new BeanPropertyRowMapper(Account.class));
+				return accounts;
 	}
 
 }

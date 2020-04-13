@@ -1,5 +1,7 @@
 package com.example.demo;
 
+import java.util.Iterator;
+import java.util.List;
 import java.util.UUID;
 
 import org.springframework.context.support.ClassPathXmlApplicationContext;
@@ -29,16 +31,21 @@ public class App
 		 */
 		  
 	
-		account.setAccountNumber("761c7f3d");
-			account.setAccountType(AccountType.CURRENT);
-			account.setInitialBalance(600000);
-		
-			//account=service.createAccount(account);
-			account=service.updateAccount(account);
-			//account=service.deleteAccount(account);
-			System.out.println(account);
+		/*
+		 * account.setAccountNumber("761c7f3d");
+		 * account.setAccountType(AccountType.CURRENT);
+		 * account.setInitialBalance(600000);
+		 * 
+		 * //account=service.createAccount(account);
+		 * account=service.updateAccount(account);
+		 * //account=service.deleteAccount(account);
+		 */			
+		//System.out.println(account);
 		 
-		
+		 List<Account> list=service.getAllAccountDetails(); Iterator<Account>
+		  i=list.iterator(); while(i.hasNext()) { Account account2=i.next();
+		  System.out.println(account2); 
+		  }
 		
 		
 		

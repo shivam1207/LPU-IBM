@@ -1,5 +1,7 @@
 package com.example.demo.service;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -26,6 +28,12 @@ public class AccountServiceImpl implements AccountService{
 	public Account deleteAccount(Account account) {
 		// TODO Auto-generated method stub
 		return accountDao.deleteAccount(account);
+	}
+
+	@Override
+	public List<Account> getAllAccountDetails() {
+		// TODO Auto-generated method stub
+		return accountDao.getAllAccountDetails();
 	}
 
 }
