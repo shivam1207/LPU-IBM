@@ -32,6 +32,7 @@ public class App
 		do {
 			System.out.println("1. Create Customer");
 			System.out.println("2. Display All Available Customers");
+			System.out.println("0. To Exit");
 			System.out.print("enter your choice:  ");
 			choice=scanner.nextInt();
 			switch (choice) {
