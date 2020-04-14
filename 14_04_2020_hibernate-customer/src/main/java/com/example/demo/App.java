@@ -26,12 +26,13 @@ public class App
 	}
     public static void main( String[] args )
     {
-    	String cName,eMail;
+    	String cName,eMail,cId;
     	Boolean isAct;
 		int choice=-1;
 		do {
 			System.out.println("1. Create Customer");
 			System.out.println("2. Display All Available Customers");
+			System.out.println("3. Get Customer Details by Customer ID");
 			System.out.println("0. To Exit");
 			System.out.print("enter your choice:  ");
 			choice=scanner.nextInt();
@@ -60,6 +61,19 @@ public class App
 				for(Customer c:list)
 				{
 					System.out.println(c);
+				}
+				break;
+			case 3:
+				System.out.print("Enter Customer Id: ");
+				cId=scanner.next();
+				customer= service.getCustomerById(cId);
+				if(customer==null)
+				{
+					System.out.println("No Customer Found With ID: "+cId);
+				}
+				else
+				{
+					System.out.println(customer);
 				}
 				break;
 			case 0:

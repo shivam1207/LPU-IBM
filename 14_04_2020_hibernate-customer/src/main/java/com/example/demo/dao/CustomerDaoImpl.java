@@ -29,4 +29,10 @@ public class CustomerDaoImpl implements CustomerDao{
 		return list;
 	}
 
+	public Customer getCustomerById(String customerID) {
+		// TODO Auto-generated method stub
+		
+		return session.get(Customer.class,customerID);
+	}
+
 }

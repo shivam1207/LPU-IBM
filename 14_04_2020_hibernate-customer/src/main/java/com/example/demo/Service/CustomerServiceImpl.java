@@ -21,4 +21,9 @@ private CustomerDao dao=new CustomerDaoImpl();;
 		return dao.getAllCustomer();
 	}
 
+	public Customer getCustomerById(String customerID) {
+		// TODO Auto-generated method stub
+		return dao.getCustomerById(customerID);
+	}
+
 }
