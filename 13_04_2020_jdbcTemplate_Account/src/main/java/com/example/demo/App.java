@@ -7,7 +7,7 @@ import java.util.UUID;
 
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
-import com.example.demo.Exception.AccountNotFoundException;
+
 import com.example.demo.bean.Account;
 import com.example.demo.bean.AccountType;
 import com.example.demo.service.AccountService;
@@ -54,12 +54,8 @@ public class App
 			case 2:
 				System.out.println("Enter the id : ");
 				String id = scanner.nextLine();
-				try {
-					service.deleteAccount(id);
-				} catch (AccountNotFoundException e) {
-					
-					e.printStackTrace();
-				}
+				service.deleteAccount(id);
+				
 				break;
 			case 3:
 				System.out.println("Enter account number ");
@@ -71,12 +67,8 @@ public class App
 				System.out.println("Enter account balance ");
 				initialBalance = scanner.nextInt();
 				account.setInitialBalance(initialBalance);
-				try {
-					service.updateAccount(accountNumber, accountType, initialBalance);
-				} catch (AccountNotFoundException e) {
-					// TODO Auto-generated catch block
-					e.printStackTrace();
-				}
+				service.updateAccount(accountNumber, accountType, initialBalance);
+				
 				break;
 			case 4:
 				List<Account> accounts = service.getAllAccountDetails();

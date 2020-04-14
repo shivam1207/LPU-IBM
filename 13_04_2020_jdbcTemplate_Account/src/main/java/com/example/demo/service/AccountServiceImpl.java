@@ -5,7 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.example.demo.Exception.AccountNotFoundException;
+
 import com.example.demo.bean.Account;
 import com.example.demo.dao.AccountDao;
 @Service
@@ -21,7 +21,7 @@ public class AccountServiceImpl implements AccountService{
 
 	
 	@Override
-	public void deleteAccount(String accountNumber) throws AccountNotFoundException{
+	public void deleteAccount(String accountNumber){
 		// TODO Auto-generated method stub
 		accountDao.deleteAccount(accountNumber);
 	}
@@ -40,7 +40,7 @@ public class AccountServiceImpl implements AccountService{
 
 
 	@Override
-	public void updateAccount(String accountNumber, String accountType, int initialBalance) throws AccountNotFoundException{
+	public void updateAccount(String accountNumber, String accountType, int initialBalance){
 		// TODO Auto-generated method stub
 		accountDao.updateAccount(accountNumber, accountType, initialBalance);
 		
