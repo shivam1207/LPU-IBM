@@ -26,7 +26,8 @@ public class App
 	}
     public static void main( String[] args )
     {
-    	String cName,eMail,cId;
+    	String cName,eMail;
+    	int cId;
     	Boolean isAct;
 		int choice=-1;
 		do {
@@ -48,7 +49,7 @@ public class App
 				
 				Customer customer= new Customer();
 				
-				customer.setCustomerID(UUID.randomUUID().toString());
+				//customer.setCustomerID(UUID.randomUUID().toString());
 				customer.setCustomerName(cName);
 				customer.setCustomerEmail(eMail);
 				customer.setIsActive(isAct);
@@ -65,7 +66,7 @@ public class App
 				break;
 			case 3:
 				System.out.print("Enter Customer Id: ");
-				cId=scanner.next();
+				cId=scanner.nextInt();
 				customer= service.getCustomerById(cId);
 				if(customer==null)
 				{
