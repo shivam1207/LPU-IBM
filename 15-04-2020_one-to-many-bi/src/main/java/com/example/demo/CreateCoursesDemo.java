@@ -6,7 +6,7 @@ import org.hibernate.cfg.Configuration;
 
 import com.example.demo.entity.Course;
 import com.example.demo.entity.Instructor;
-
+//
 public class CreateCoursesDemo {
 
 	public static void main(String[] args) {
