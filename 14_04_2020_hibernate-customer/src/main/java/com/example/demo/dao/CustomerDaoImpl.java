@@ -45,9 +45,9 @@ public class CustomerDaoImpl implements CustomerDao{
 	  session.getTransaction().commit(); }
 
 	
-	  public Customer updateCustomerById(int customerID) { 
+	  public Customer updateCustomerById(Customer customer) { 
 		  session.getTransaction().begin();
-		session.update(customerID);
+		session.update(customer);
 	  session.getTransaction().commit();
 	return null;
 	  

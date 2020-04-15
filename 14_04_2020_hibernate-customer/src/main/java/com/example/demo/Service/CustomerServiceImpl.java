@@ -31,9 +31,9 @@ private CustomerDao dao=new CustomerDaoImpl();;
 		 dao.deleteCustomerById(customerID);
 	}
 
-	public Customer updateCustomerById(int customerID) {
+	public Customer updateCustomerById(Customer customer) {
 		// TODO Auto-generated method stub
-		return dao.updateCustomerById(customerID);
+		return dao.updateCustomerById(customer);
 		
 	}
 

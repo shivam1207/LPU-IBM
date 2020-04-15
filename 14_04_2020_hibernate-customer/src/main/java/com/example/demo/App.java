@@ -97,7 +97,7 @@ public class App
 			  customer1.setCustomerName(cName);
 			  customer1.setCustomerEmail(eMail);
 			  customer1.setIsActive(isAct);
-			  customer1= service.updateCustomerById(cId);
+			  customer1= service.updateCustomerById(customer1);
 				System.out.println(customer1);
 			  
 			   break;
