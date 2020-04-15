@@ -26,4 +26,15 @@ private CustomerDao dao=new CustomerDaoImpl();;
 		return dao.getCustomerById(customerID);
 	}
 
+	public void deleteCustomerById(int customerID) {
+		// TODO Auto-generated method stub
+		 dao.deleteCustomerById(customerID);
+	}
+
+	public Customer updateCustomerById(int customerID) {
+		// TODO Auto-generated method stub
+		return dao.updateCustomerById(customerID);
+		
+	}
+
 }

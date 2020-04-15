@@ -37,12 +37,26 @@ public class CustomerDaoImpl implements CustomerDao{
 		return session.get(Customer.class,customerID);
 	}
 	
-	/*
-	 * public void deleteCustomerById(String customerID) {
-	 * session.getTransaction().begin(); Customer myCustomer
-	 * =session.get(Customer.class,customerID); session.delete(myCustomer);
-	 * session.getTransaction().commit(); }
-	 */
+	
+	  public void deleteCustomerById(int customerID) {
+	  session.getTransaction().begin(); 
+	  Customer myCustomer=session.get(Customer.class,customerID); 
+	  session.delete(myCustomer);
+	  session.getTransaction().commit(); }
+
+	
+	  public Customer updateCustomerById(int customerID) { 
+		  session.getTransaction().begin();
+		session.update(customerID);
+	  session.getTransaction().commit();
+	return null;
+	  
+	  
+	  }
+	 
+	  
+	  
+	 
 	
 
 }
