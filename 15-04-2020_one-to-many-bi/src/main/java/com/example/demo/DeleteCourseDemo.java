@@ -34,6 +34,7 @@ public class DeleteCourseDemo {
 			System.out.println("Deleting course: " + tempCourse);
 			
 			session.delete(tempCourse);
+			
 
 			// commit transaction
 			session.getTransaction().commit();

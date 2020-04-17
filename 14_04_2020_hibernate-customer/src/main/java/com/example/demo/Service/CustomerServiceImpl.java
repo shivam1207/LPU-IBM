@@ -8,7 +8,7 @@ import com.example.demo.domain.Customer;
 
 public class CustomerServiceImpl implements CustomerService{
 
-private CustomerDao dao=new CustomerDaoImpl();;
+private CustomerDao dao=new CustomerDaoImpl();
 	
 	
 	public Customer createCustomer(Customer customer) {
