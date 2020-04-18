@@ -44,9 +44,9 @@ public class AddLeagueServlet extends HttpServlet {
  
     response.setContentType("text/html");
 	PrintWriter out=response.getWriter();
-	String leagueName=request.getParameter("l_name").toString();
-	String leagueYear=request.getParameter("l_year").toString();
-	String leagueSeason=request.getParameter("l_season").toString();
+	String leagueName=request.getParameter("name").toString();
+	String leagueYear=request.getParameter("year").toString();
+	String leagueSeason=request.getParameter("season").toString();
 	if((leagueName.isEmpty() &&(leagueYear.isEmpty() && (leagueSeason.isEmpty()))))
 	{
 		RequestDispatcher view=request.getRequestDispatcher("error.html");
