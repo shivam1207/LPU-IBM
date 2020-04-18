@@ -5,15 +5,12 @@
 <title>Insert title here</title>
 </head>
 <body>
-<form action=’add_league.do’ method=’POST’>
-title:<input type=’text’ name=’title’ /> <br/><br/> 
-Year: <input type=’text’ name=’year’ /> <br/><br/> 
-Season: <select name=’season’> 
- <option value=’Spring’>Spring</option>
-  <option value=’Summer’>Summer</option>
-   <option value=’Winter’>Winter</option>
-    <option value=’fall’>fall</option> </select> <br/><br/>
-<input type="submit" value="Add">
+<form action="add.do" method="post">
+
+<label>League Title:</label><input type="text" name=l_name><br/>
+<label>League Year</label><input type="number" name="l_year"></br>
+<label>League Season</label><input type="text" name="l_season"></br>
+<input type="submit" value="add"></br>
 </form>
 </body>
 </html>

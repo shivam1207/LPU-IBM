@@ -17,7 +17,7 @@ import com.example.demo.model.League;
  * Servlet implementation class AddLeagueServlet
  */
 public class AddLeagueServlet extends HttpServlet {
-	private static final long serialVersionUID = 1L;
+	
        
     /**
      * @see HttpServlet#HttpServlet()
@@ -27,37 +27,37 @@ public class AddLeagueServlet extends HttpServlet {
         // TODO Auto-generated constructor stub
     }
 
-    
- 
+
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		
 		doProcess(request, response);
 	}
 
 	
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		
 		doProcess(request, response);
-		
 	}
-
-	protected void doProcess(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
-		response.setContentType("text/html");
-		PrintWriter out=response.getWriter();
-		String leagueName=request.getParameter("title").toString();
-		String leagueYear=request.getParameter("year").toString();
-		String leagueSeason=request.getParameter("season").toString();
-		if((leagueName.length()<=8)&&(leagueYear.isEmpty())&& (leagueSeason.isEmpty()))
-		{
-			RequestDispatcher view=request.getRequestDispatcher("error.html");
-			view.forward(request, response);
-		}
-		else
-		{
-			RequestDispatcher view=request.getRequestDispatcher("success.html");
-			view.forward(request, response);
-		}
-		 			 
-}	   
+	
+	protected void doProcess(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+ 
+    response.setContentType("text/html");
+	PrintWriter out=response.getWriter();
+	String leagueName=request.getParameter("l_name").toString();
+	String leagueYear=request.getParameter("l_year").toString();
+	String leagueSeason=request.getParameter("l_season").toString();
+	if((leagueName.isEmpty() &&(leagueYear.isEmpty() && (leagueSeason.isEmpty()))))
+	{
+		RequestDispatcher view=request.getRequestDispatcher("error.html");
+		view.forward(request, response);
+	}
+	else
+	{
+		RequestDispatcher view=request.getRequestDispatcher("success.html");
+		view.forward(request, response);
+	}
+	
 }
 
-
+}
