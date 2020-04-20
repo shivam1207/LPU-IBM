@@ -10,28 +10,9 @@
   	<description></description>
   	<servlet-class>com.example.demo.controller.ControllerServlet</servlet-class>
   </servlet>
-  <servlet>
-  	<servlet-name>SucessServlet</servlet-name>
-  	<display-name>SucessServlet</display-name>
-  	<description></description>
-  	<servlet-class>com.example.demo.view.SucessServlet</servlet-class>
-  </servlet>
-  <servlet>
-  	<servlet-name>ErrorServlet</servlet-name>
-  	<display-name>ErrorServlet</display-name>
-  	<description></description>
-  	<servlet-class>com.example.demo.view.ErrorServlet</servlet-class>
-  </servlet>
+  
   <servlet-mapping>
   	<servlet-name>ControllerServlet</servlet-name>
   	<url-pattern>/controller.do</url-pattern>
-  </servlet-mapping>
-  <servlet-mapping>
-  	<servlet-name>SucessServlet</servlet-name>
-  	<url-pattern>/success.view</url-pattern>
-  </servlet-mapping>
-  <servlet-mapping>
-  	<servlet-name>ErrorServlet</servlet-name>
-  	<url-pattern>/error.view</url-pattern>
   </servlet-mapping>
 </web-app>

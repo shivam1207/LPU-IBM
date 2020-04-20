@@ -10,7 +10,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import model.ToDo;
+import com.example.demo.model.ToDo;
 
 /**
  * Servlet implementation class ControllerServlet
@@ -59,14 +59,14 @@ public class ControllerServlet extends HttpServlet {
 		{
 			ToDo todo=new ToDo(id, name, c_by);
 			request.setAttribute("todo", todo);//key and value pair
-			RequestDispatcher view=request.getRequestDispatcher("success.view");
+			RequestDispatcher view=request.getRequestDispatcher("success.jsp");
 			view.forward(request, response);
 		}
 		else
 		{
 			
 			request.setAttribute("error",errors);//key and value pair
-			RequestDispatcher view=request.getRequestDispatcher("error.view");
+			RequestDispatcher view=request.getRequestDispatcher("error.jsp");
 			view.forward(request, response);
 		}
 		
