@@ -12,22 +12,28 @@ import com.example.demo.model.Student;
 @Controller
 @RequestMapping("/student")
 public class StudentController {
-	
+
 	@RequestMapping("/showForm")
-	public String showForm(Model model)
-	{
+	public String showForm(Model theModel) {
 		
-		Student student=new Student();
+		// create a student object
+		Student theStudent = new Student();
 		
-		model.addAttribute("student",student);
+		// add student object to the model
+		theModel.addAttribute("student", theStudent);
+		
 		return "student-form";
 	}
 	
 	@RequestMapping("/processForm")
-	public String processForm(@ModelAttribute("student") Student theStudent,Model model)
-	{
-		theStudent.setId(UUID.randomUUID().toString());
-		model.addAttribute("student", theStudent);
+	public String processForm(@ModelAttribute("student") Student theStudent) {
+		
+		// log the input data
+		System.out.println("theStudent: " + theStudent.getFirstName()
+							+ " " + theStudent.getLastName());
+		
 		return "student-confirmation";
 	}
+	
 }
+

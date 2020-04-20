@@ -1,16 +1,29 @@
-<%@page isELIgnored="false" %>
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+
 <!DOCTYPE html>
+
 <html>
+
 <head>
-<meta charset="UTF-8">
-<title>Insert title here</title>
+	<title>Student Confirmation</title>
 </head>
+
 <body>
-Student ID: ${student.id}<br/>
-Student First Name: ${student.firstName}<br/>
-Student Last Name: ${student.lastName}</br>
-Student Email: ${student.email}<br/>
+
+The student is confirmed: ${student.firstName} ${student.lastName}
+
+<br><br>
+
+Country: ${student.country}
+
+<br><br>
+
+Favorite Language: ${student.favoriteLanguage}
+
 </body>
+
 </html>
+
+
+
+
