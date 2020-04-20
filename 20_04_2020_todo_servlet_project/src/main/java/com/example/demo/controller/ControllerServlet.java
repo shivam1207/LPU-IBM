@@ -1,6 +1,11 @@
 package com.example.demo.controller;
 
 import java.io.IOException;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -10,14 +15,17 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.example.demo.factory.MyFactory;
 import com.example.demo.model.ToDo;
 
 /**
  * Servlet implementation class ControllerServlet
  */
 public class ControllerServlet extends HttpServlet {
+	
 	private static final long serialVersionUID = 1L;
 	private List<String> errors;
+	  MyFactory factory= MyFactory.getMyFactory();
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
@@ -54,10 +62,23 @@ public class ControllerServlet extends HttpServlet {
 		{
 			errors.add("completeed by field cant not be blank");
 		}
+		
+		
 			
+		
 		if(errors.isEmpty())
 		{
 			ToDo todo=new ToDo(id, name, c_by);
+			try {
+				PreparedStatement prepareStatement = factory.getMyConnection().prepareStatement("insert into todo values (?,?,? )");
+				prepareStatement.setInt(1, todo.getId());
+				prepareStatement.setString(2,todo.getName());
+				prepareStatement.setString(3, todo.getCompletedBy());
+				prepareStatement.executeUpdate();
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 			request.setAttribute("todo", todo);//key and value pair
 			RequestDispatcher view=request.getRequestDispatcher("success.jsp");
 			view.forward(request, response);
@@ -70,8 +91,8 @@ public class ControllerServlet extends HttpServlet {
 			view.forward(request, response);
 		}
 		
-		
-	}
-
+	
 
 }
+}
+
