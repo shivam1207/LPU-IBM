@@ -16,6 +16,13 @@ public class PojoToJsonDriver {
     //Converting the Object to JSONString
     String jsonString = mapper.writeValueAsString(cust);
     System.out.println(jsonString);
+    
+    //using json B
+	/*
+	 * Jsonb jsonb = JsonbBuilder.create(); String result=jsonb.toJson(new
+	 * Customer(1,"John","Doe",true,new Address(),new String[3]));
+	 * System.out.println(result);
+	 */
  }
 	
 	
