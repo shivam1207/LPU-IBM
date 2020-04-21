@@ -23,6 +23,7 @@ public class PojoToJsonDriver {
 	 * Customer(1,"John","Doe",true,new Address(),new String[3]));
 	 * System.out.println(result);
 	 */
+	 
  }
 	
 	
