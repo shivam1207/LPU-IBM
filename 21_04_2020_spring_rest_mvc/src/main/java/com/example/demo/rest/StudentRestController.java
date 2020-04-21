@@ -11,6 +11,8 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -35,6 +37,7 @@ import com.example.demo.exception.StudentResponseEntity;
 			theStudents.add(new Student(2,"Mary", "Smith"));		
 			
 		}
+		//fetching all students details
 		
 		@GetMapping("/students")
 		public List<Student> getStudents() {
@@ -42,7 +45,7 @@ import com.example.demo.exception.StudentResponseEntity;
 			
 			return theStudents;
 		}
-		
+		//fetching details by id
 		@GetMapping("/students/{studentID}")
 		public Student getStudentByID(@PathVariable int studentID) throws StudentNotFoundException
 		{
@@ -52,6 +55,14 @@ import com.example.demo.exception.StudentResponseEntity;
 			
 			return theStudents.get(studentID);
 		
+		}
+		
+		//creating student
+		@PostMapping("/students")
+		public Student createStudent(@RequestBody Student theStudent)
+		{
+			theStudents.add(theStudent);
+			return theStudent;
 		}
 		@ExceptionHandler
 			public ResponseEntity<StudentResponseEntity> handleException(StudentNotFoundException snfe)
