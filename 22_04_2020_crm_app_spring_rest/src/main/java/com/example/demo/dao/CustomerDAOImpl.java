@@ -40,5 +40,32 @@ public class CustomerDAOImpl implements CustomerDAO {
 		// TODO Auto-generated method stub
 		return currentSession.get(Customer.class,id);
 	}
+	@Override
+	public Customer saveCustomer(Customer customer) {
+		// TODO Auto-generated method stub
+		Session currentSession = sessionFactory.openSession();
+		currentSession.getTransaction().begin();
+		currentSession.saveOrUpdate(customer);
+		currentSession.getTransaction().commit();
+		return customer;
+	}
+	@Override
+	public void deleteCustomer(int id) {
+		// TODO Auto-generated method stub
+		//get the current hibernate session
+		Session currentSession = sessionFactory.openSession();
+		// delete object with primary key
+		currentSession.getTransaction().begin();
+		Query theQuery = 
+				currentSession.createQuery("delete from Customer where id=:id");
+		theQuery.setParameter("id", id);
+		
+		theQuery.executeUpdate();
+		currentSession.getTransaction().commit();
+	}
 
-}
+		
+		
+	}
+
+

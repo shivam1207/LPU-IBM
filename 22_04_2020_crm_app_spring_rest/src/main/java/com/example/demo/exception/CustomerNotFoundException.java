@@ -1,6 +1,6 @@
 package com.example.demo.exception;
 
-public class CustomerNotFoundException extends Throwable{
+public class CustomerNotFoundException extends  RuntimeException {
 	private static final long serialVersionUID = 3289290139523389288L;
 	private String message;
 

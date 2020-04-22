@@ -5,9 +5,13 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -32,7 +36,7 @@ public class CustomerRestController {
 		
 	}
 	@GetMapping("/customers/{id}")
-	public Customer getCustomer(@PathVariable int id)throws CustomerNotFoundException
+	public Customer getCustomer(@PathVariable int id)
 	{
 		Customer cust=customerService.getCustomer(id);
 		if((cust==null)) {
@@ -42,27 +46,44 @@ public class CustomerRestController {
 		return cust;
 			
 	}
+	@PostMapping("/customers")
+	public Customer saveCustomer(@RequestBody Customer customer)
+	{
+		customerService.saveCustomer(customer);
+		return customer;
 		
-	@ExceptionHandler
-	public ResponseEntity<CustomerResponseEntity> handleException(CustomerNotFoundException snfe)
-{
-
-		
-	return new ResponseEntity<CustomerResponseEntity>(new CustomerResponseEntity(HttpStatus.NOT_FOUND.value(), snfe.getMessage(),System.currentTimeMillis()),HttpStatus.NOT_FOUND);
-}
-@ExceptionHandler
-public ResponseEntity<CustomerResponseEntity> handleNumberFormatException(NumberFormatException ipme)
-{
-	return new ResponseEntity<CustomerResponseEntity>(new CustomerResponseEntity(HttpStatus.BAD_REQUEST.value(),"must provide numeric value", System.currentTimeMillis()),HttpStatus.BAD_REQUEST);
-}
-
-// For all other exceptions-global exception
-/*@ExceptionHandler
-public ResponseEntity<CustomerResponseEntity> handleGlobalException(Exception exc){
-	return new ResponseEntity<CustomerResponseEntity>(new CustomerResponseEntity(HttpStatus.BAD_REQUEST.value(),"something is not right, try again with correct values", System.currentTimeMillis()),HttpStatus.BAD_REQUEST);
 	}
-	*/
+	
+	@PutMapping("/customers")
+	public Customer updateCustomer(@RequestBody Customer customer)
+	{
+		customerService.saveCustomer(customer);
+		return customer;
+		
+	}
+	@DeleteMapping("/customers/{id}")
+	public void deleteCustomer(@PathVariable int id){
+				
+Customer tempCustomer = customerService.getCustomer(id);
+		
+		// throw exception if null
+		
+		if (tempCustomer == null) {
+			throw new CustomerNotFoundException("Customer id not found - " + id);
+		}
+				
+		customerService.deleteCustomer(id);
+		
+	
 
+		
+		
+		
+
+		
+	}
+		
+	
 	
 	
 } 
