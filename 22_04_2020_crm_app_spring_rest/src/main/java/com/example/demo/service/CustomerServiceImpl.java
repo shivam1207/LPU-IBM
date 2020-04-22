@@ -17,5 +17,10 @@ public class CustomerServiceImpl implements CustomerService {
 		// TODO Auto-generated method stub
 		return dao.getCustomers();
 	}
+	@Override
+	public Customer getCustomer(int id) {
+		// TODO Auto-generated method stub
+		return dao.getCustomer(id);
+	}
 
 }

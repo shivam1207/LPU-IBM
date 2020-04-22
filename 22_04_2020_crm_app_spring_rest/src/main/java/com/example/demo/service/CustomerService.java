@@ -7,4 +7,5 @@ import com.example.demo.entity.Customer;
 public interface CustomerService {
 	public List<Customer> getCustomers();
 
+	public Customer getCustomer(int id);
 }

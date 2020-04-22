@@ -15,12 +15,14 @@ public class CustomerDAOImpl implements CustomerDAO {
 
 	@Autowired
 	private SessionFactory sessionFactory;
+	
+	
 	@Override
 	public List<Customer> getCustomers() {
 		// TODO Auto-generated method stub
 		// get the current hibernate session
-				Session currentSession = sessionFactory.openSession();
-						
+				
+		Session currentSession = sessionFactory.openSession();		
 				// create a query  ... sort by last name
 				Query<Customer> theQuery = 
 						currentSession.createQuery("from Customer order by lastName",
@@ -31,6 +33,12 @@ public class CustomerDAOImpl implements CustomerDAO {
 						
 				// return the results		
 				return customers; 
+	}
+	@Override
+	public Customer getCustomer(int id) {
+		Session currentSession = sessionFactory.openSession();
+		// TODO Auto-generated method stub
+		return currentSession.get(Customer.class,id);
 	}
 
 }
