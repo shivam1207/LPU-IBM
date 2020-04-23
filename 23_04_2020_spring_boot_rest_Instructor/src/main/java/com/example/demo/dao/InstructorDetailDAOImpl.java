@@ -24,6 +24,7 @@ public class InstructorDetailDAOImpl implements InstructorDetailDAO{
     Session session=entityManager.unwrap(Session.class);
 		
     session.save(instructorDetail);
+   
      return instructorDetail;
 		
 	}
