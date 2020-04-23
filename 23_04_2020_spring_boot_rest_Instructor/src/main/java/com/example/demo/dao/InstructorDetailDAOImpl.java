@@ -7,7 +7,7 @@ import org.hibernate.Session;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 
-
+import com.example.demo.entity.Instructor;
 import com.example.demo.entity.InstructorDetail;
 @Repository
 @EnableTransactionManagement
@@ -22,10 +22,12 @@ public class InstructorDetailDAOImpl implements InstructorDetailDAO{
 	public InstructorDetail createInstructorDetail(InstructorDetail instructorDetail) {
 		// TODO Auto-generated method stub
     Session session=entityManager.unwrap(Session.class);
-		
-    session.save(instructorDetail);
-   
-     return instructorDetail;
+    
+    Instructor tempI=instructorDetail.getInstructor();
+    tempI.setInstructorDetail(instructorDetail);
+    session.save(tempI);
+	return instructorDetail;
+    
 		
 	}
 

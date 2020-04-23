@@ -9,6 +9,8 @@ import javax.persistence.Id;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+
 @Entity
 @Table(name="instructor_detail")
 public class InstructorDetail {
@@ -18,6 +20,13 @@ public class InstructorDetail {
 	@Column(name="id")
 	private int id;
 	
+	public InstructorDetail(String youtubeChannel, String hobby, Instructor instructor) {
+		super();
+		this.youtubeChannel = youtubeChannel;
+		this.hobby = hobby;
+		this.instructor = instructor;
+	}
+
 	@Column(name="youtube_channel")
 	private String youtubeChannel;
 	
@@ -28,7 +37,7 @@ public class InstructorDetail {
 	@OneToOne(mappedBy="instructorDetail", cascade=CascadeType.ALL)
 	private Instructor instructor;
 
-	
+	@JsonManagedReference
 	public Instructor getInstructor() {
 		return instructor;
 	}
