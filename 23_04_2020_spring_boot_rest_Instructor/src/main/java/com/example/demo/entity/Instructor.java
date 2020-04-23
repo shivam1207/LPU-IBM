@@ -14,7 +14,6 @@ import javax.persistence.Table;
 @Table(name="instructor")
 public class Instructor {
 
-	
 
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
