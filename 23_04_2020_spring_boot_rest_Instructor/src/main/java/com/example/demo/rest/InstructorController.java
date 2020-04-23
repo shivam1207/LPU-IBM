@@ -55,8 +55,7 @@ public class InstructorController {
 		@PutMapping("/instructors")
 		public Instructor updateInstructor(@RequestBody Instructor instructor)
 		{
-			dao.createInstructor(instructor);
-			return instructor;
+			return dao.updateInstructor(instructor);
 		}
 		
 			

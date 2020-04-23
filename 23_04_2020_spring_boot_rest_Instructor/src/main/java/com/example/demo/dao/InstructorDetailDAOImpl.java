@@ -40,5 +40,32 @@ Session session=entityManager.unwrap(Session.class);
 		Query query=session.createQuery("from InstructorDetail",InstructorDetail.class);
 		return query.getResultList();
 	}
+	@Override
+	public InstructorDetail getInstructorDetailById(int id) {
+		// TODO Auto-generated method stub
+		Session session=entityManager.unwrap(Session.class);
+		return session.get(InstructorDetail.class, id);
+		
+	}
+	@Override
+	public void deleteInstructorDetail(int id) {
+		// TODO Auto-generated method stub
+		Session session=entityManager.unwrap(Session.class);
+		session.getTransaction().begin();
+		InstructorDetail inst= session.get(InstructorDetail.class,id);
+		session.delete(inst);
+		session.getTransaction().commit();
+		
+	}
+	@Override
+	public InstructorDetail updateInstructorDetail(InstructorDetail instructorDetail) {
+		// TODO Auto-generated method stub
+		Session session=entityManager.unwrap(Session.class);
+		session.getTransaction().begin();
+		session.update(instructorDetail);
+		session.getTransaction().commit();
+		return instructorDetail;
+		
+	}
 
 }

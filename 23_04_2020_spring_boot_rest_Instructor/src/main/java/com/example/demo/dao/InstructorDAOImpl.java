@@ -11,6 +11,7 @@ import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 
 import com.example.demo.entity.Instructor;
+import com.example.demo.entity.InstructorDetail;
 @Repository
 @EnableTransactionManagement
 public class InstructorDAOImpl implements InstructorDAO{
@@ -34,7 +35,7 @@ Session session=entityManager.unwrap(Session.class);
 		// TODO Auto-generated method stub
 		Session session=entityManager.unwrap(Session.class);
 		session.getTransaction().begin();
-		session.saveOrUpdate(instructor);
+		session.save(instructor);
 		session.getTransaction().commit();
 		return instructor;
 	}
@@ -53,6 +54,20 @@ Session session=entityManager.unwrap(Session.class);
 		// TODO Auto-generated method stub
 		Session session=entityManager.unwrap(Session.class);
 		return session.get(Instructor.class,id);
+	}
+	@Override
+	public Instructor updateInstructor(Instructor instructor) {
+		// TODO Auto-generated method stub
+		Session session=entityManager.unwrap(Session.class);
+		// delete object with primary key
+		session.getTransaction().begin();
+		session.update(instructor);
+		session.getTransaction().commit();
+		return instructor;
+		
+		
+		
+		
 	}
 
 	
