@@ -1,13 +1,15 @@
 package com.example.demo.rest;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.example.demo.dao.InstructorDetailDAO;
-
 import com.example.demo.entity.InstructorDetail;
 @RestController
 @RequestMapping("/api")
@@ -23,7 +25,11 @@ public class InstructorDetailController {
 	{
 		return dao.createInstructorDetail(instructorDetail);
 	}
-	
+	@GetMapping("/instructorDetails")
+	public List<InstructorDetail> listInstructorDetail()
+	{
+		return dao.getInstructorDetails();
+	}
 	
 
 }

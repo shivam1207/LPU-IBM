@@ -1,5 +1,7 @@
 package com.example.demo.dao;
 
+import java.util.List;
+
 import javax.persistence.EntityManager;
 import javax.persistence.Query;
 
@@ -31,6 +33,12 @@ public class InstructorDetailDAOImpl implements InstructorDetailDAO{
 		
 	}
 
-	
+	public List<InstructorDetail> getInstructorDetails() {
+		// TODO Auto-generated method stub
+Session session=entityManager.unwrap(Session.class);
+		
+		Query query=session.createQuery("from InstructorDetail",InstructorDetail.class);
+		return query.getResultList();
+	}
 
 }
