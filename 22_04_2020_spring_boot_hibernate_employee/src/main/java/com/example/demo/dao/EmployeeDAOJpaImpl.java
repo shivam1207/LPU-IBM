@@ -5,42 +5,47 @@ import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.Query;
 
-import org.hibernate.Session;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
-import org.springframework.transaction.annotation.Transactional;
 
 import com.example.demo.data.Employee;
-//@Repository(value = "employeeDAO")
+@Repository
 @EnableTransactionManagement
-public class EmployeeDAOImpl implements EmployeeDAO {
-	
+public class EmployeeDAOJpaImpl implements EmployeeDAO{
 	private EntityManager entityManager;
-
 	@Autowired
-	public EmployeeDAOImpl(EntityManager entityManager) {
+	public EmployeeDAOJpaImpl(EntityManager entityManager) {
 		super();
 		this.entityManager = entityManager;
 	}
 
 	@Override
-	@Transactional
 	public List<Employee> getEmployees() {
+		// TODO Auto-generated method stub
+		// create a query
+				Query theQuery = 
+						entityManager.createQuery("from Employee");
+				
+			
+				List<Employee> employees = theQuery.getResultList();
+				
+				// return the results		
+				return employees;
 		
-		Session session=entityManager.unwrap(Session.class);
-		
-		Query query=session.createQuery("from Employee",Employee.class);
-		return query.getResultList();
 	}
 
 	@Override
-	@Transactional
 	public Employee createEmployee(Employee employee) {
 		// TODO Auto-generated method stub
-		Session session=entityManager.unwrap(Session.class);
-		session.save(employee);
-		return employee;
+		// save or update the employee
+			entityManager.persist(employee);
+				
+				
+			//employee.setEmployeeID(dbEmployee.getEmployeeID());
+			return employee;
+
 	}
+	
 
 }

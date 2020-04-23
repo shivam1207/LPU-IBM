@@ -33,8 +33,26 @@ Session session=entityManager.unwrap(Session.class);
 	public Instructor createInstructor(Instructor instructor) {
 		// TODO Auto-generated method stub
 		Session session=entityManager.unwrap(Session.class);
-		session.save(instructor);
+		session.getTransaction().begin();
+		session.saveOrUpdate(instructor);
+		session.getTransaction().commit();
 		return instructor;
+	}
+	@Override
+	public void deleteInstructor(int id) {
+		// TODO Auto-generated method stub
+		Session session=entityManager.unwrap(Session.class);
+		// delete object with primary key
+		session.getTransaction().begin();
+		Instructor inst= session.get(Instructor.class,id);
+		session.delete(inst);
+		session.getTransaction().commit();
+	}
+	@Override
+	public Instructor getInstructorById(int id) {
+		// TODO Auto-generated method stub
+		Session session=entityManager.unwrap(Session.class);
+		return session.get(Instructor.class,id);
 	}
 
 	

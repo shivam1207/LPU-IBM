@@ -8,6 +8,7 @@ public interface InstructorDAO {
 public List<Instructor> getInstructors();
 	
 	public Instructor createInstructor(Instructor instructor);
-	public Instructor deleteInstructor(int id);
+	public Instructor getInstructorById(int id);
+	public void deleteInstructor(int id);
 
 }

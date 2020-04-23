@@ -1,0 +1,41 @@
+package com.example.demo.rest;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.example.demo.dao.EmployeeDAO;
+import com.example.demo.data.Employee;
+@RestController
+@RequestMapping("/api/jpa")
+public class EmployeeJpaController {
+	
+	
+
+		private EmployeeDAO employeeDAO;
+
+		@Autowired
+		public EmployeeJpaController(EmployeeDAO employeeDAO) {
+			super();
+			this.employeeDAO = employeeDAO;
+		}
+		@GetMapping("/employees")
+		public List<Employee> listEmployee()
+		{
+			return employeeDAO.getEmployees();
+		}
+		
+		@PostMapping("/employees")
+		public Employee createEmployee(@RequestBody Employee employee)
+		{
+			return employeeDAO.createEmployee(employee);
+		}
+			
+		}
+
+
