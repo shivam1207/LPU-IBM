@@ -27,10 +27,11 @@ public class ProjectQueryController {
   return new ResponseEntity<>(projectQueryService.getAllProjects(), HttpStatus.OK);
  }
 
- @GetMapping("/projects/{id}")
- public ResponseEntity<Project> getProjectById(@PathVariable("id") Integer id){
-  return new ResponseEntity(projectQueryService.getProject(id),HttpStatus.OK);
- }
+	
+	  @GetMapping("/projects/{id}") public ResponseEntity<Project>
+	  getProjectById(@PathVariable("id") Integer id){ return new
+	  ResponseEntity(projectQueryService.getProject(id),HttpStatus.OK); }
+	 
  
  @PostMapping("/projects")
  public ProjectQueryDTO saveProject(@RequestBody ProjectQueryDTO projectQueryDTO) {
@@ -49,4 +50,26 @@ public class ProjectQueryController {
 	 projectQueryService.deleteProject(id);
 	 
  }
+ @GetMapping("/projects/projectName/{name}")
+ public ResponseEntity<Iterable<Project>> getProjectByName(@PathVariable("name") String name){
+	return ResponseEntity.ok().body(projectQueryService.findByName(name));
+	 
+ }
+ @DeleteMapping("/projects/projectName/{name}")
+ public void removeByName(@PathVariable("name")String name) {
+	 projectQueryService.removeByName(name);
+	 
+ }
+ @GetMapping("/projects/{name}/{agentName}")
+ public ResponseEntity<Iterable<Project>> findByNameAndAgentName(@PathVariable("name") String name,@PathVariable("agentName") String agentName)
+ {
+	return ResponseEntity.ok().body(projectQueryService.findByNameAndAgentName(name, agentName));
+	 
+ }
+
+ 
+ 
+ 
+ 
+ 
 }

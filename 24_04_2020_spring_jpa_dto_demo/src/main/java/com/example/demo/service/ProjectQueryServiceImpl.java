@@ -2,6 +2,8 @@ package com.example.demo.service;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.transaction.Transactional;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -72,6 +74,25 @@ public void deleteProject(int id) {
 	 if (projectRepo.findById(id).isPresent()) {
 		projectRepo.deleteById(id); 
 	 }
+}
+
+@Override
+public Iterable<Project> findByName(String name) {
+	// TODO Auto-generated method stub
+	return projectRepo.findByName(name);
+}
+
+@Override
+@Transactional
+public void removeByName(String name) {
+	// TODO Auto-generated method stub
+	projectRepo.removeByName(name);
+}
+
+@Override
+public Iterable<Project> findByNameAndAgentName(String name, String agentName) {
+	// TODO Auto-generated method stub
+	return projectRepo.findByNameAndAgentName(name, agentName);
 }
 
 }

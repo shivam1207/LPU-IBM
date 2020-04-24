@@ -15,4 +15,7 @@ public interface ProjectQueryService {
  public void deleteProject(int id);
  public Project updateProject(Project project);
 
+ public Iterable<Project> findByName(String name);
+ public void removeByName(String name);
+ public Iterable<Project> findByNameAndAgentName(String name, String agentName);
 }
