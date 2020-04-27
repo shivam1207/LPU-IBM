@@ -8,6 +8,6 @@ public interface AccountService {
 	
 	public ResponseEntity<Iterable<Account>> getAccounts();
 	public Account getAccountById(int id);
-	public Account getAccountByCustomerId(String customerId);
+	public Iterable<Account> findByCustomerId(String customerId);
 
 }

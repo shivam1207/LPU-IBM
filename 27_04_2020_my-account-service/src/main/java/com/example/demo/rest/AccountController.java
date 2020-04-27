@@ -33,10 +33,12 @@ public class AccountController {
 		return accountService.getAccountById(id);
 	}
 	@GetMapping("/accounts/byCustomer/{customerId}")
-	public Account getAccountByCustomerId(String customerId)
-	{
-		return accountService.getAccountByCustomerId(customerId);
+	public Iterable<Account> findByCustomerId(@PathVariable String customerId){
+		return accountService.findByCustomerId(customerId);
 		
-	}
-
+			
+			
+		}
+	
+		
 }

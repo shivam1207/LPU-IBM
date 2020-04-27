@@ -31,9 +31,9 @@ public class AccountServiceImpl implements AccountService {
 	}
 
 	@Override
-	public Account getAccountByCustomerId(String customerId) {
+	public Iterable<Account> findByCustomerId(String customerId){
 		// TODO Auto-generated method stub;
-		return dao.getAccountByCustomerId(customerId);
+		return dao.findByCustomerId(customerId);
 	}
 
 }
