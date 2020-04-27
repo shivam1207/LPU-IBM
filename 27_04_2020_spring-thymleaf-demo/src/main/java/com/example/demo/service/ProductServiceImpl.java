@@ -37,6 +37,13 @@ public class ProductServiceImpl implements ProductService {
    	return productDAO.save(product);
    }
 
+@Override
+public void deleteProduct(int id) {
+	// TODO Auto-generated method stub
+	productDAO.deleteById(id);
+	
+}
+
 
 
    

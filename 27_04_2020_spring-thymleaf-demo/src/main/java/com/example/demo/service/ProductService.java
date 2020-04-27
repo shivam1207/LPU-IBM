@@ -11,4 +11,6 @@ public Iterable<Product> getProducts();
 	
 	public Product saveProduct(Product product);
 	
+	public void deleteProduct(int id);
+	
 }
