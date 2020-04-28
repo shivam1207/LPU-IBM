@@ -10,7 +10,7 @@ import com.example.demo.model.Account;
 import com.example.demo.service.AccountService;
 
 @RestController
-@RequestMapping("/api")
+//@RequestMapping("/api")
 public class AccountController {
 
 	private AccountService accountService;
@@ -32,7 +32,7 @@ public class AccountController {
 	{
 		return accountService.getAccountById(id);
 	}
-	@GetMapping("/accounts/byCustomer/{customerId}")
+	@GetMapping("/accounts/customer/{customerId}")
 	public Iterable<Account> findByCustomerId(@PathVariable String customerId){
 		return accountService.findByCustomerId(customerId);
 		
