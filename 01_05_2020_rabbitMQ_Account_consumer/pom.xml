@@ -9,9 +9,9 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.example.demo</groupId>
-	<artifactId>30_04_2020_rabbitMQ_consumer</artifactId>
+	<artifactId>01_05_2020_rabbitMQ_Account_consumer</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>30_04_2020_rabbitMQ_consumer</name>
+	<name>01_05_2020_rabbitMQ_Account_consumer</name>
 	<description>Demo project for Spring Boot</description>
 
 	<properties>
@@ -21,7 +21,6 @@
 	</properties>
 
 	<dependencies>
-		
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-actuator</artifactId>
@@ -47,6 +46,29 @@
 			<artifactId>spring-cloud-starter-consul-discovery</artifactId>
 		</dependency>
 
+<!-- Swagger -->
+		<dependency>
+    <groupId>io.springfox</groupId>
+    <artifactId>springfox-swagger2</artifactId>
+    <version>2.9.2</version>
+</dependency>
+
+<dependency>
+    <groupId>io.springfox</groupId>
+    <artifactId>springfox-swagger-ui</artifactId>
+    <version>2.9.2</version>
+</dependency>
+
+	<dependency>
+    <groupId>io.springfox</groupId>
+    <artifactId>springfox-bean-validators</artifactId>
+    <version>2.9.2</version>
+</dependency>
+<dependency>
+    <groupId>javax.xml.bind</groupId>
+    <artifactId>jaxb-api</artifactId>
+    
+</dependency>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-devtools</artifactId>
