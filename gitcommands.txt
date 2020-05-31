@@ -19,4 +19,3 @@ git push -u origin master
 cloning repo
 git clone <url>
 
-git .ignore
