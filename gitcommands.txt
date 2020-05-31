@@ -1,0 +1,22 @@
+git commands
+git init  : -- initalize the current folder as git repository
+git status :-- status of git repo
+git add <files/folders> :-- to add files or folder to staging area
+git add .   :-- to add all files or folder to staging area
+git commit -m " first commit"  :-- commit changes
+git log --oneline   :- show all the logs of commits
+git checkout <commit> <file> :-- checkout file from old commit
+
+to restore back
+git reset HEAD templates/test.html
+git checkout -- templates/test.html
+
+remote git
+git remote add origin <url>
+ to push the local git repo
+git push -u origin master
+
+cloning repo
+git clone <url>
+
+git .ignore
